@@ -6,14 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "vehicle_data")
 public class Vehicle implements Serializable{
 
     @Id
+    @NotEmpty(message = "nomor_registrasi_kendaraan is required")
     private String nomor_registrasi_kendaraan;
 
+    @NotEmpty(message = "nama_pemilik may not be null")
     @Column(nullable=false)
     private String nama_pemilik;
 
